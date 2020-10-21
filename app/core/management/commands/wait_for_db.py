@@ -1,4 +1,4 @@
-import time 
+import time
 
 from django.db import connections
 from django.db.utils import OperationalError
@@ -18,3 +18,4 @@ class Command(BaseCommand):
         time.sleep(1)
 
     self.stdout.write(self.style.SUCCESS('Database Available!'))
+    
