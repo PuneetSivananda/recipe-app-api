@@ -5,7 +5,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models import Reciepe
+from core.models import Receipe
 from receipe.serializers import RecipeSerializer
 
 RECEIPES_URL = reverse('receipe:receipe-list')
@@ -45,3 +45,32 @@ class PrivateReceipeApiTests(TestCase):
             'testpass'
         )
         self.client.force_authenticate(self.user)
+
+    def test_retrieve_receipes(self):
+        """Test retreving a list of receipes"""
+        sample_recipe(user=self.user)
+        sample_recipe(user=self.user)
+
+        res = self.client.get(RECEIPES_URL)
+
+        receipes = receipes.object.all().order_by('-id')
+        serializer = RecipeSerializer(receipes, many=True)
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(res.data, serializer.data)
+
+    def test_receipes_limited_to_user(self):
+        """Test retreving a receipes for user"""
+        user2 = self.user = get_user_model().objects.create_user(
+            'other@testuser.com',
+            'testpass'
+        )
+        sample_recipe(user=user2)
+        sample_recipe(user=self.user)
+
+        res = self.client.get(RECEIPES_URL)
+        receipes = receipes.object.filter(user=self.user)
+        serializer = RecipeSerializer(receipes, many=True)
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(res.data), 1)
+        self.assertEqual(res.data, serializer.data)
