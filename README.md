@@ -1,3 +1,5 @@
+@username LondonAppDeveloper
+
 # recipe-app-api
 
 Recipe app api source code
@@ -11,6 +13,14 @@ Run Tests
 Make Migrations
 `docker-compose run app sh -c "python manage.py makemigrations core"`
 
+## Remove the pyc files
+
+TODO: Automate the code
+
+```bash
+find . -name "*.pyc" -exec rm -f {} \;
+```
+
 ## Docker Postgres Debugging
 
 ```bash
@@ -23,3 +33,7 @@ sudo pkill -u postgres
 docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
 
 docker-compose run --rm app sh -c "python manage.py runserver 0.0.0.0:8000"
+
+
+# Command for start
+1.1 `docker-compose run app sh -c "django-admin.py startproject app ."`
