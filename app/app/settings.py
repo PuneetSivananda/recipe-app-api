@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'do)p6amf%5yndxqyz)p%v20n#fhabw8(@8&k1^%*0@!#0&^292'
+SECRET_KEY = '9*o5y*psl9ter8olzsthed3s+1skn0*73%4kf-=!-%ibk5@hg-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,11 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'rest_framework',
     'rest_framework.authtoken',
     'core',
     'user',
     'receipe',
+=======
+>>>>>>> 556dd0d (feat: setup django project)
 ]
 
 MIDDLEWARE = [
@@ -80,11 +83,16 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': os.environ.get('DB_HOST'),
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
+=======
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+>>>>>>> 556dd0d (feat: setup django project)
     }
 }
 
@@ -126,5 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 
 AUTH_USER_MODEL = 'core.User'
+=======
+>>>>>>> 556dd0d (feat: setup django project)
