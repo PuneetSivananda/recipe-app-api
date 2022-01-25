@@ -37,14 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'rest_framework',
-    'rest_framework.authtoken',
-    'core',
-    'user',
-    'receipe',
-=======
->>>>>>> 556dd0d (feat: setup django project)
 ]
 
 MIDDLEWARE = [
