@@ -34,6 +34,8 @@ docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage
 
 docker-compose run --rm app sh -c "python manage.py runserver 0.0.0.0:8000"
 
-
 # Command for start
+
 1.1 `docker-compose run app sh -c "django-admin.py startproject app ."`
+1.2 `docker-compose run app sh -c "python manage.py test`
+1.3 `docker-compose run app sh -c "python manage.py test && flake8"`
