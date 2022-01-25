@@ -37,5 +37,8 @@ docker-compose run --rm app sh -c "python manage.py runserver 0.0.0.0:8000"
 # Command for start
 
 1.1 `docker-compose run app sh -c "django-admin.py startproject app ."`
-1.2 `docker-compose run app sh -c "python manage.py test`
-1.3 `docker-compose run app sh -c "python manage.py test && flake8"`
+1.2 `docker-compose run --rm app sh -c "python manage.py test`
+1.3 `docker-compose run --rm app sh -c "python manage.py test && flake8"`
+
+2.1 `docker-compose run app sh -c "python manage.py startapp core"` Create a new app under the main application
+2.2 `docker-compose run --rm app sh -c "python manage.py makemigrations core"` Make migrations after updating the code
