@@ -42,3 +42,5 @@ docker-compose run --rm app sh -c "python manage.py runserver 0.0.0.0:8000"
 
 2.1 `docker-compose run app sh -c "python manage.py startapp core"` Create a new app under the main application
 2.2 `docker-compose run --rm app sh -c "python manage.py makemigrations core"` Make migrations after updating the code
+
+3.1 `docker-compose run app sh -c "python manage.py createsuperuser"`
